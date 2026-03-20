@@ -1,10 +1,8 @@
-package feira.problemasolid;
+package feira.solucao.notificacao;
 
-/**
- * Componente de notificação via WhatsApp (simulado no console).
- */
-public class NotificadorWhatsApp {
-    public void enviarMensagem(String telefone, String mensagem) {
-        System.out.println("[WhatsApp] " + telefone + ": " + mensagem);
+public class NotificadorWhatsApp implements NotificadorPedido {
+    @Override
+    public void notificarFinalizacao(String contato, double total) {
+        System.out.println("[WhatsApp] " + contato + " -> Pedido finalizado. Total: R$ " + total);
     }
 }

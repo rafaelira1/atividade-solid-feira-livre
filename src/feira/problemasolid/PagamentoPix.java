@@ -1,34 +1,13 @@
-package feira.problemasolid;
+package feira.solucao.pagamento;
 
-/**
- * Implementação de pagamento PIX para a atividade.
- *
- * Lança UnsupportedOperationException em vários métodos por causa de
- * uma interface grande demais (violação de ISP).
- */
-public class PagamentoPix implements PagamentoGateway {
+public class PagamentoPix implements ProcessadorPagamento {
     @Override
-    public void pagarPix(double valor) {
-        System.out.println("Pagamento PIX efetuado: R$ " + valor);
+    public String codigo() {
+        return "PIX";
     }
 
     @Override
-    public void pagarCartao(double valor) {
-        throw new UnsupportedOperationException("PIX não suporta cartão");
-    }
-
-    @Override
-    public void emitirNotaFiscal(String cpf, double valor) {
-        throw new UnsupportedOperationException("PIX não emite NF");
-    }
-
-    @Override
-    public void gerarRelatorioFechamento() {
-        throw new UnsupportedOperationException("PIX não gera fechamento");
-    }
-
-    @Override
-    public void enviarEmailConfirmacao(String email) {
-        throw new UnsupportedOperationException("PIX não envia e-mail");
+    public void pagar(double valor) {
+        System.out.println("PIX pago: R$ " + valor);
     }
 }

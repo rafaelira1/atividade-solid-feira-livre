@@ -1,16 +1,15 @@
 package feira.solucao.entrega;
 
-public class EntregaExpressa implements CalculadoraPrazoEntrega {
+public class EntregaNormal implements CalculadoraPrazoEntrega {
     @Override
     public String tipo() {
-        return "EXPRESSA";
+        return "NORMAL";
     }
 
     @Override
     public int calcularPrazoDias(double distanciaKm) {
         validarDistancia(distanciaKm);
-        int prazoBase = (int) Math.ceil(distanciaKm / 20.0);
-        return Math.max(1, prazoBase);
+        return (int) Math.ceil(distanciaKm / 10.0);
     }
 
     private void validarDistancia(double distanciaKm) {
