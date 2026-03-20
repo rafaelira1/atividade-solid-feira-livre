@@ -1,2 +1,2 @@
-# Atividade Prática SOLID - Feira Livre (Projeto Isolado)
-
+# atividade-solid-feira-livre
+Refatoração de Código aplicando Princípios SOLID
