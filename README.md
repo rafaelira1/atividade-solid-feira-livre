@@ -2,7 +2,7 @@
 
 ## Integrantes
 
-- Rafael Lira
+- Rafael Lira (rafaelira1)
 - Gabriel Alves
 
 ## Turma
@@ -67,7 +67,20 @@ java -cp out feira.solucao.SolucaoMain
 src/
   feira/
     problemasolid/         ← código original (não alterado)
-    solucao/
+      AtividadeMain.java
+      Entrega.java
+      EntregaExpressa.java
+      ImpressoraTermica.java
+      NotificadorWhatsApp.java
+      PagamentoGateway.java
+      PagamentoPix.java
+      Pedido.java
+      PedidoItem.java
+      PedidoRepository.java
+      PedidoRepositoryMemoria.java
+      ProcessadorPedidoRuim.java
+      Produto.java
+    solucao/               ← refatoração aplicando SOLID
       domain/              ← Produto, PedidoItem, Pedido
       repository/          ← PedidoRepository, PedidoRepositoryMemoria
       desconto/            ← PoliticaDesconto e implementações (OCP)
@@ -78,4 +91,5 @@ src/
       entrega/             ← CalculadoraPrazoEntrega, EntregaNormal, EntregaExpressa (LSP)
       service/             ← FinalizadorPedidoService, PedidoFinalizado (DIP)
       SolucaoMain.java     ← ponto de entrada da solução
+README.md
 ```
