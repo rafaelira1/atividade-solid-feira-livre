@@ -1,19 +1,16 @@
-package feira.solucao.cupom;
+package feira.problemasolid;
 
-import feira.solucao.domain.Pedido;
-import feira.solucao.domain.PedidoItem;
-
-public class ImpressoraTermica implements ImpressoraCupom {
-    @Override
-    public void imprimir(Pedido pedido, double totalLiquido) {
-        System.out.println("=== CUPOM ===");
+/**
+ * Componente responsável por imprimir o cupom do pedido.
+ */
+public class ImpressoraTermica {
+    public void imprimirCupom(Pedido pedido, double total) {
+        System.out.println("=== CUPOM FISCAL ===");
         System.out.println("Cliente: " + pedido.getCliente());
         for (PedidoItem item : pedido.getItens()) {
-            System.out.println(item.getProduto().getNome()
-                    + " x" + item.getQuantidade()
-                    + " = R$ " + item.subtotal());
+            System.out.println(item.getProduto().getNome() + " x" + item.getQuantidade() + " = R$ " + item.subtotal());
         }
-        System.out.println("Total líquido: R$ " + totalLiquido);
-        System.out.println("=============");
+        System.out.println("Total: R$ " + total);
+        System.out.println("====================");
     }
 }

@@ -1,13 +1,13 @@
 package feira.solucao.desconto;
 
-public class SemDesconto implements PoliticaDesconto {
+public class DescontoDomingo implements PoliticaDesconto {
     @Override
     public String codigo() {
-        return "NENHUM";
+        return "DOMINGO";
     }
 
     @Override
     public double aplicar(double totalBruto) {
-        return totalBruto;
+        return totalBruto * 0.95;
     }
 }

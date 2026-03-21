@@ -1,21 +1,17 @@
-package feira.solucao.entrega;
+package feira.problemasolid;
 
-public class EntregaExpressa implements CalculadoraPrazoEntrega {
-    @Override
-    public String tipo() {
-        return "EXPRESSA";
-    }
-
+/**
+ * Subtipo usado para demonstrar quebra de LSP na atividade.
+ *
+ * Em alguns cenários válidos para o tipo base, esta classe lança exceção,
+ * impedindo substituição transparente.
+ */
+public class EntregaExpressa extends Entrega {
     @Override
     public int calcularPrazoDias(double distanciaKm) {
-        validarDistancia(distanciaKm);
-        int prazoBase = (int) Math.ceil(distanciaKm / 20.0);
-        return Math.max(1, prazoBase);
-    }
-
-    private void validarDistancia(double distanciaKm) {
-        if (distanciaKm < 0) {
-            throw new IllegalArgumentException("Distância inválida");
+        if (distanciaKm > 20) {
+            throw new UnsupportedOperationException("Entrega expressa não atende acima de 20km");
         }
+        return 1;
     }
 }

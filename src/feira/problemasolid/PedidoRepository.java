@@ -1,9 +1,12 @@
-package feira.solucao.repository;
+package feira.problemasolid;
 
-import feira.solucao.domain.Pedido;
 import java.util.List;
 
+/**
+ * Contrato de persistência de pedidos.
+ */
 public interface PedidoRepository {
     void salvar(Pedido pedido);
+
     List<Pedido> listarTodos();
 }

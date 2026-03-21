@@ -1,10 +1,11 @@
-package feira.solucao.repository;
+package feira.problemasolid;
 
-import feira.solucao.domain.Pedido;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
+/**
+ * Implementação em memória do repositório de pedidos.
+ */
 public class PedidoRepositoryMemoria implements PedidoRepository {
     private final List<Pedido> pedidos = new ArrayList<>();
 
@@ -15,6 +16,6 @@ public class PedidoRepositoryMemoria implements PedidoRepository {
 
     @Override
     public List<Pedido> listarTodos() {
-        return Collections.unmodifiableList(pedidos);
+        return pedidos;
     }
 }
