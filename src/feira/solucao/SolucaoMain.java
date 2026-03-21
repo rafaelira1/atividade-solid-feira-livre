@@ -28,8 +28,6 @@ import java.util.Arrays;
 
 public class SolucaoMain {
     public static void main(String[] args) {
-
-        // DIP: criação das implementações centralizada aqui
         PedidoRepository repository = new PedidoRepositoryMemoria();
 
         CalculadoraDesconto calculadoraDesconto = new CalculadoraDesconto(Arrays.asList(
@@ -47,7 +45,6 @@ public class SolucaoMain {
         NotificadorPedido notificador = new NotificadorWhatsApp();
         ExportadorRelatorioPedido exportador = new ExportadorCsvPedido();
 
-        // DIP: FinalizadorPedidoService recebe abstrações, não concretos
         FinalizadorPedidoService finalizador = new FinalizadorPedidoService(
                 repository,
                 calculadoraDesconto,
@@ -56,7 +53,6 @@ public class SolucaoMain {
                 notificador,
                 exportador);
 
-        // Criando pedido de exemplo
         Pedido pedido = new Pedido("Maria da Feira");
         pedido.adicionarItem(new Produto("Tomate", 8.0), 2);
         pedido.adicionarItem(new Produto("Cenoura", 6.5), 3);
@@ -67,15 +63,13 @@ public class SolucaoMain {
                 "PIX",
                 "85999990000");
 
-        System.out.println("\nTotal bruto:   R$ " + resultado.getTotalBruto());
+        System.out.println("Total bruto: R$ " + resultado.getTotalBruto());
         System.out.println("Total líquido: R$ " + resultado.getTotalLiquido());
-        System.out.println("\nCSV gerado:\n" + resultado.getRelatorioCsv());
+        System.out.println("CSV:\n" + resultado.getRelatorioCsv());
 
-        // LSP: EntregaNormal e EntregaExpressa são intercambiáveis
-        System.out.println("\n--- Cálculo de prazo de entrega ---");
         CalculadoraPrazoEntrega entregaNormal = new EntregaNormal();
         CalculadoraPrazoEntrega entregaExpressa = new EntregaExpressa();
-        System.out.println("Prazo normal (30km):   " + entregaNormal.calcularPrazoDias(30) + " dia(s)");
+        System.out.println("Prazo normal (30km): " + entregaNormal.calcularPrazoDias(30) + " dia(s)");
         System.out.println("Prazo expresso (30km): " + entregaExpressa.calcularPrazoDias(30) + " dia(s)");
     }
 }
