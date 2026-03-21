@@ -3,7 +3,7 @@
 ## Integrantes
 
 - Rafael Lira (rafaelira1)
-- Gabriel Alves
+- Gabriel Alves (allvesg)
 
 ## Turma
 
